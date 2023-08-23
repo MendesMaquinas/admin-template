@@ -1,7 +1,9 @@
 export default function MenuLateral() {
   return (
     <aside>
-      <h1>Menu</h1>
+      <ul>
+        <li></li>
+      </ul>
     </aside>
   );
 }
