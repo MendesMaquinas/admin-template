@@ -6,8 +6,8 @@ interface TituloProps {
 export default function Titulo(props: TituloProps) {
   return (
     <div>
-      <h1 className={``}>{props.titulo}</h1>
-      <h2 className={``}>{props.subtitulo}</h2>
+      <h1 className={`font-black text-3xl text-gray-800`}>{props.titulo}</h1>
+      <h2 className={`font-light text-sm text-gray-600`}>{props.subtitulo}</h2>
     </div>
   );
 }
