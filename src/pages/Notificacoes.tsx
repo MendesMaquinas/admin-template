@@ -8,7 +8,6 @@ export default function Home() {
   return (
       <Layout titulo="Página de Notificações" subTitulo="Aqui voce ira gerienciar suas notificacoes">
         <button onClick={alternarTema}>Click</button>
-
     </Layout>
   );
 }

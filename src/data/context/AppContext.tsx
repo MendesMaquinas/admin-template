@@ -4,10 +4,8 @@ import {useState} from "react";
 type Tema = 'dark' | 'light'; 
 interface AppConextProps {
     tema: Tema,
-    alternarTema?: () => void,
+    alternarTema: () => void,
 }
-
-
 
 const AppContext = createContext<AppConextProps>({});
 
