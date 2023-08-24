@@ -5,8 +5,10 @@ import { AuthProvider } from '../data/context/AuthContext';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <AppProvider>
-      <Component {...pageProps} />
-    </AppProvider>
+    <AuthProvider>
+      <AppProvider>
+        <Component {...pageProps} />
+      </AppProvider>
+    </AuthProvider>
   );
 }
