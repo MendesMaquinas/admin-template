@@ -55,7 +55,7 @@ export function AuthProvider(props) {
 
   async function loginGoogle() {
     try {
-        setCarregando(true);
+      setCarregando(true);
       const resp = await firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
       configurarSessao(resp.user);
       route.push('/');
@@ -76,8 +76,8 @@ export function AuthProvider(props) {
 
   useEffect(() => {
     if (Cookies.get('admin-template-cod3r-auth')) {
-        const cancelar = firebase.auth().onIdTokenChanged(configurarSessao);
-        return () => cancelar();
+      const cancelar = firebase.auth().onIdTokenChanged(configurarSessao);
+      return () => cancelar();
     }
   }, []);
 
