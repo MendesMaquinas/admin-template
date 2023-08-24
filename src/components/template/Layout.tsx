@@ -1,7 +1,7 @@
 import Cabecalho from "./Cabecalho";
 import MenuLateral from "./MenuLateral";
 import Conteudo from "./Conteudo";
-import useAppData from "@/data/hook/useAppData";
+import useAppData from "../../data/hook/useAppData";
 
 interface LayoutProps {
   titulo: string;

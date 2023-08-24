@@ -1,4 +1,4 @@
-import useAppData from "@/data/hook/useAppData";
+import useAppData from "../../data/hook/useAppData";
 import BotaoAlternarTema from "./BotaoAlternarTema";
 import Titulo from "./Titulo";
 

@@ -24,9 +24,20 @@ async function usuarioNormalizado(usuarioFirebase: firebase.User): Promise<Usuar
 export function AuthProvider(props) {
   const [usuario, setUsuario] = useState<Usuario>(null);
 
-  async function loginGoogle() {}
+  async function loginGoogle() {
+    console.log('login');
+  }
 
-  return <AuthContext.Provider value={{}}>{props.children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider
+      value={{
+        usuario,
+        loginGoogle,
+      }}
+    >
+      {props.children}
+    </AuthContext.Provider>
+  );
 }
 
 export default AuthContext;

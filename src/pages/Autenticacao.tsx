@@ -1,8 +1,12 @@
-import AuthInput from '@/components/auth/AuthInput';
-import { IconeWarn } from '@/components/icons/Index';
+import AuthInput from '../components/auth/AuthInput';
+import { IconeWarn } from '../components/icons/Index';
 import { useState } from 'react';
+import useAuth from '../data/hook/useAuth';
 
 export default function Autenticacao() {
+
+  const {usuario, loginGoogle} = useAuth();
+
   const [erro, setErro] = useState(null);
   const [modo, setModo] = useState<'login' | 'cadastro'>('login');
   const [email, setEmail] = useState('');
@@ -41,7 +45,7 @@ export default function Autenticacao() {
           {modo === 'login' ? 'Entrar' : 'Cadastrar'}
         </button>
         <hr className="my-6 border-gray-300 w-full" />
-        <button className="w-full bg-red-500 hover:bg-red-400 text-white rounded-md px-1 py-3 " onClick={submeter}>
+        <button className="w-full bg-red-500 hover:bg-red-400 text-white rounded-md px-1 py-3" onClick={() => loginGoogle()}>
           Entrar com Google
         </button>
 
