@@ -5,18 +5,27 @@ import useAuth from '../data/hook/useAuth';
 
 export default function Autenticacao() {
 
-  const {usuario, loginGoogle} = useAuth();
+  const { cadastrarEmail, loginEmail, loginGoogle } = useAuth();
 
   const [erro, setErro] = useState(null);
   const [modo, setModo] = useState<'login' | 'cadastro'>('login');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
-  function submeter() {
+  async function submeter() {
     if (modo === 'login') {
-      exibiErro('Ocorreu um erro no login!');
+      try {
+        await loginEmail(email, senha)
+      } catch (err) {
+        exibiErro(err?.message ?? "Erro inesperado!");
+      }
+
     } else {
-      exibiErro('Ocorreu um erro no cadastro!');
+      try {
+        await cadastrarEmail(email, senha);
+      } catch (err) {
+        exibiErro(err?.message ?? "Erro inesperado!");
+      }
     }
   }
 
@@ -41,7 +50,7 @@ export default function Autenticacao() {
 
         <AuthInput label="Email" tipo="email" valor={email} valorMudou={setEmail} obrigatorio renderizar />
         <AuthInput label="Senha" tipo="password" valor={senha} valorMudou={setSenha} obrigatorio renderizar />
-        <button className="w-full bg-indigo-500 hover:bg-indigo-400 text-white rounded-md px-1 py-3 mt-6" onClick={submeter}>
+        <button className="w-full bg-indigo-500 hover:bg-indigo-400 text-white rounded-md px-1 py-3 mt-6" onClick={() => submeter()}>
           {modo === 'login' ? 'Entrar' : 'Cadastrar'}
         </button>
         <hr className="my-6 border-gray-300 w-full" />
